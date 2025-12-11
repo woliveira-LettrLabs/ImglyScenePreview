@@ -105,6 +105,41 @@ The application will throw an error at runtime if the license is not provided.
 
 This project uses the imgly CreativeEditor SDK. The SDK license is configured in the project.
 
+## Deployment
+
+### GitHub Pages
+
+This project is configured for automatic deployment to GitHub Pages.
+
+#### Setup Instructions
+
+1. **Enable GitHub Pages**:
+   - Go to your repository Settings → Pages
+   - Under "Source", select "GitHub Actions"
+
+2. **Configure GitHub Secrets**:
+   - Go to Settings → Secrets and variables → Actions
+   - Click "New repository secret"
+   - **Required**: Name: `VITE_IMGLY_LICENSE`, Value: Your Imgly CreativeEditor SDK license key
+   - **Optional**: Name: `VITE_BASE_PATH`, Value: Base path for your site
+     - For repository subpath (default): `/repository-name/`
+     - For custom domain: `/`
+
+3. **Push to main branch**:
+   - The workflow will automatically build and deploy on push to `main` or `master`
+   - You can also manually trigger it from Actions → Deploy to GitHub Pages → Run workflow
+
+4. **Access your site**:
+   - Your site will be available at: `https://your-username.github.io/repository-name/`
+   - If using a custom domain, set `VITE_BASE_PATH` secret to `/`
+
+#### Workflow Details
+
+The deployment workflow (`.github/workflows/deploy.yml`) will:
+- Build the project with the license from GitHub Secrets
+- Deploy to GitHub Pages automatically
+- Run on every push to `main`/`master` branch
+
 ## Notes
 
 - Maximum file size: 50MB
