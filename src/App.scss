@@ -1,0 +1,106 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.app__header {
+  padding: var(--spacing-lg);
+  background-color: var(--white);
+  border-bottom: var(--border-sm) solid var(--gray-gray-50);
+  box-shadow: var(--Floating-shadow);
+
+  .app__title {
+    margin: 0 0 var(--spacing-sm) 0;
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+    color: var(--general-page-title);
+  }
+
+  .app__subtitle {
+    margin: 0;
+    font-size: var(--font-size-sm);
+    color: var(--general-general-description);
+  }
+}
+
+.app__content {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.app__controls {
+  width: 400px;
+  padding: var(--spacing-lg);
+  background-color: var(--gray-gray-10);
+  border-right: var(--border-sm) solid var(--gray-gray-50);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.app__tabs {
+  display: flex;
+  gap: var(--spacing-sm);
+  border-bottom: var(--border-sm) solid var(--gray-gray-50);
+
+  .app__tab {
+    padding: var(--spacing-md) var(--spacing-lg);
+    background: none;
+    border: none;
+    border-bottom: var(--border-md) solid transparent;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--tab-tab-title-inactive);
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      color: var(--tab-tab-title-inactive-hovered);
+    }
+
+    &--active {
+      color: var(--tab-tab-title-active);
+      border-bottom-color: var(--tab-tab-title-active);
+    }
+  }
+}
+
+.app__loader {
+  flex: 1;
+}
+
+.app__error {
+  padding: var(--spacing-md) var(--spacing-md);
+  background-color: var(--red-red-10);
+  border: var(--border-sm) solid var(--red-red-300);
+  border-radius: var(--rounded-lg);
+  color: var(--red-red-500);
+
+  p {
+    margin: 0;
+    font-size: var(--font-size-sm);
+  }
+}
+
+.app__viewer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .app__content {
+    flex-direction: column;
+  }
+
+  .app__controls {
+    width: 100%;
+    max-height: 300px;
+  }
+}
